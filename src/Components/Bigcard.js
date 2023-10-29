@@ -5,7 +5,7 @@ import rarro from "../asets/rarrow.png"
 function Bigcard({img}) {
   return (
     <>
-      <div className=" w-[300px]  md:w-[500px] lg:w-[600px] h-[200px] flex gap-2 bg-[#E9FFC2] shadow-xl">
+      <div className=" w-[300px]  md:w-[500px] lg:w-[600px] h-[200px] flex gap-2  shadow-xl">
         <div className="  w-[900px] h-[200px] " >
             <img src={img} alt="s" className=" w-full h-full " />
         </div>

@@ -1,60 +1,73 @@
-import React from 'react'
-import SCARD from '../Components/SmallCard';
-
-
-import IDIMG from '../asets/idimg.jpg';
-import IMAG from '../asets/imgbw4.jpeg';
-import IMA from '../asets/logo1.jpg';
-// import NewsCard from './Components/NewsCard';
+import SCARD from "../Components/SmallCard";
+import { useState, useEffect } from "react";
+import left from "../asets/chevronleft.svg";
+import right from "../asets/chevronright.svg";
 
 function Body() {
+  const AIPKEY = "5aec5428482d4c2fa51863b44d162a6b";
+  const API = "https://newsapi.org/v2/everything?q=";
+  const [page, setPage] = useState(12);
+  const [data, setData] = useState([]);
+  const fetchApiData = async (query) => {
+    try {
+      const response = await fetch(
+        `${API}${query}&apiKey=${AIPKEY}&language=en&pageSize=${page}`
+      );
+
+      setData(await response.json());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchApiData("space");
+  }, [page]);
   return (
     <>
-       <main>
-          
-          <div className=" p-4 bg-[#FDFFAE]  ">
-            <div className=" hidden  lg:flex lg:flex-row justify-evenly  py-5 gap-5  w-screen  ">
-              <SCARD img={IDIMG} />
-              <SCARD img={IMAG} />
-              <SCARD img={IMA}  />
-            </div>
-
-            <div className=" lg:hidden flex-col flex md:flex md:flex-row justify-evenly  py-5 gap-5  w-screen  ">
-              <SCARD img={IDIMG} />
-              <SCARD img={IMAG} />
-              
-            </div>
-            <div className=" hidden  lg:flex lg:flex-row justify-evenly  py-5 gap-5  w-screen  ">
-              <SCARD img={IDIMG} />
-              <SCARD img={IMAG} />
-              <SCARD img={IMA}  />
-            </div>
-
-            <div className=" lg:hidden flex-col flex md:flex md:flex-row justify-evenly  py-5 gap-5  w-screen  ">
-              <SCARD img={IDIMG} />
-              <SCARD img={IMAG} />
-              
-            </div>
-            <div className=" hidden  lg:flex lg:flex-row justify-evenly  py-5 gap-5  w-screen  ">
-              <SCARD img={IDIMG} />
-              <SCARD img={IMAG} />
-              <SCARD img={IMA}  />
-            </div>
-
-            <div className=" lg:hidden flex-col flex md:flex md:flex-row justify-evenly  py-5 gap-5  w-screen  ">
-              <SCARD img={IDIMG} />
-              <SCARD img={IMAG} />
-              
-            </div>
-            <div className=" lg:hidden flex-col flex md:flex md:flex-row justify-evenly  py-5 gap-5  w-screen  ">
-              <SCARD img={IDIMG} />
-              <SCARD img={IMAG} />
-              
-            </div>
+      <main className=" flex flex-col items-center gap-6 pb-6">
+        <p className=" text-2xl font-bold">LETEST NEWS</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 justify-evenly">
+          {data.articles?.map((item, index) => {
+            return (
+              <SCARD
+                title={item.title}
+                description={item.description}
+                img={item.urlToImage || "https://picsum.photos/200/300"}
+                url={item.url}
+              />
+            );
+          })}
+        </div>
+        <div className=" flex">
+          <div className=" bg-yellow-400 w-24 items-center rounded-md flex gap-1">
+            <img src={left} alt="#" className=" h-4 text-center" />
+            <button
+              onClick={() => {
+                setPage(page - 12);
+              }}
+            >
+              Previous
+            </button>
           </div>
-         
-        </main></>
-  )
+          <div className=" px-6">
+            <p>{page / 12}</p>
+          </div>
+
+          <div className=" bg-yellow-400 w-20 text-center px-2 rounded-md flex">
+            <button
+              onClick={() => {
+                
+                setPage(page + 12);
+              }}
+            >
+              Next
+            </button>
+            <img src={right} alt="#" />
+          </div>
+        </div>
+      </main>
+    </>
+  );
 }
 
-export default Body
+export default Body;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LOGO from "../asets/logo.png";
 import MENU from "../asets/menu.svg";
 import SEARCH from "../asets/search.svg";
@@ -8,19 +8,35 @@ function Navbar() {
   const [state2, setState2] = useState(false);
   const change = () => {
     setState(!state);
-    
   };
   const change2 = () => {
     setState2(!state2);
-    
+  };
+  let query = "";
+  const changeHandler = (e) => {
+    query = e.target.value;
   };
 
+  const AIPKEY = "5aec5428482d4c2fa51863b44d162a6b";
+  const API = "https://newsapi.org/v2/everything?q=";
+  const [data, setData] = useState([]);
+  const fetchApiData = async (query) => {
+    try {
+      const response = await fetch(`${API}${query}&apiKey=${AIPKEY}`);
+
+      setData(await response.json());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchApiData(query);
+  }, []);
   return (
     <>
       <div className=" flex  bg-[#AAC8A7] items-center justify-between p-2">
         <div className=" flex items-center">
           <img src={LOGO} alt="logo" className=" h-12 md:mx-4 " />
-          
         </div>
 
         <div className="  flex md:mx-4 gap-3 items-center">
@@ -31,10 +47,7 @@ function Navbar() {
           <a href="/src/App.js" className="hidden md:block">
             ABOUT
           </a>
-          <select
-            name="Select"
-            className="bg-[#AAC8A7] text-center"
-          >
+          <select name="Select" className="bg-[#AAC8A7] text-center">
             <option value="crime">CATEGORY</option>
             <option value="crime">CATEGORY</option>
             <option value="crime">CATEGORY</option>
@@ -61,6 +74,7 @@ function Navbar() {
               type="text"
               className=" rounded-sm placeholder:px-2"
               placeholder="search a news"
+              onChange={changeHandler}
             />
             <div>
               <button className="bg-[#80917e] mx-3 p-1 rounded-sm ">
@@ -70,13 +84,16 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className={state ? "block" : " hidden " }>
-        <div className= "md:hidden flex w-full justify-evenly mt-4 ">
+      <div className={state ? "block" : " hidden "}>
+        <div className="md:hidden flex w-full justify-evenly mt-4 ">
           <div className=" flex">
             <input
               type="text"
               className=" rounded-sm w-full placeholder:px-2 border-2 border-black "
               placeholder="search a news"
+              onChange={(e) => {
+                console.log(e.target.value);
+              }}
             />
             <div>
               <button className="bg-[#80917e] mx-2 border-2 border-black py-2 px-2 rounded-sm ">
