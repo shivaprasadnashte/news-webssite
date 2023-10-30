@@ -5,14 +5,14 @@ import Aboutus from "./Components/Aboutus";
 function App() {
   return (
     <>
-      {/* <div className=" flex flex-col bg-slate-500  justify-between  ">
+      <div className=" flex flex-col bg-slate-500  justify-between  ">
         <NAVBAR />
         <main className=" flex justify-center mt-9">
           <BODY />
         </main>
         <FOOTER />
-      </div> */}
-      <Aboutus />
+      </div>
+      {/* <Aboutus /> */}
     </>
   );
 }
