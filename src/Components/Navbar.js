@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import LOGO from "../asets/logo.png";
 import MENU from "../asets/menu.svg";
 import SEARCH from "../asets/search.svg";
 
 function Navbar() {
+  //================================================================//
   const [state, setState] = useState(false);
   const [state2, setState2] = useState(false);
   const change = () => {
@@ -12,26 +13,8 @@ function Navbar() {
   const change2 = () => {
     setState2(!state2);
   };
-  let query = "";
-  const changeHandler = (e) => {
-    query = e.target.value;
-  };
+  //=================================================================//
 
-  const AIPKEY = "5aec5428482d4c2fa51863b44d162a6b";
-  const API = "https://newsapi.org/v2/everything?q=";
-  const [data, setData] = useState([]);
-  const fetchApiData = async (query) => {
-    try {
-      const response = await fetch(`${API}${query}&apiKey=${AIPKEY}`);
-
-      setData(await response.json());
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    fetchApiData(query);
-  }, []);
   return (
     <>
       <div className=" flex  bg-[#AAC8A7] items-center justify-between p-2">
@@ -74,7 +57,6 @@ function Navbar() {
               type="text"
               className=" rounded-sm placeholder:px-2"
               placeholder="search a news"
-              onChange={changeHandler}
             />
             <div>
               <button className="bg-[#80917e] mx-3 p-1 rounded-sm ">
@@ -91,9 +73,6 @@ function Navbar() {
               type="text"
               className=" rounded-sm w-full placeholder:px-2 border-2 border-black "
               placeholder="search a news"
-              onChange={(e) => {
-                console.log(e.target.value);
-              }}
             />
             <div>
               <button className="bg-[#80917e] mx-2 border-2 border-black py-2 px-2 rounded-sm ">

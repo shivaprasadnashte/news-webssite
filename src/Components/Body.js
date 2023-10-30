@@ -1,10 +1,11 @@
 import SCARD from "../Components/SmallCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import left from "../asets/chevronleft.svg";
 import right from "../asets/chevronright.svg";
 
 function Body() {
-  const AIPKEY = "5aec5428482d4c2fa51863b44d162a6b";
+  //===================== API Fetching ======================================
+  const AIPKEY = "ce4e4db9fc22415694e75fc5f2a940b0";
   const API = "https://newsapi.org/v2/everything?q=";
   const [page, setPage] = useState(12);
   const [data, setData] = useState([]);
@@ -20,8 +21,10 @@ function Body() {
     }
   };
   useEffect(() => {
-    fetchApiData("space");
+    fetchApiData("bitcoin");
   }, [page]);
+
+  //=========================================================
   return (
     <>
       <main className=" flex flex-col items-center gap-6 pb-6">
@@ -56,7 +59,6 @@ function Body() {
           <div className=" bg-yellow-400 w-20 text-center px-2 rounded-md flex">
             <button
               onClick={() => {
-                
                 setPage(page + 12);
               }}
             >
