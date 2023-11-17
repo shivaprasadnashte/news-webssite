@@ -27,7 +27,7 @@ function SearchPage() {
     };
     useEffect(() => {
       fetchApiData(searchTerm);
-    }, [page]);
+    }, [page,searchTerm]);
   
     
     return (

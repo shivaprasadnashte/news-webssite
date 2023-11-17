@@ -46,7 +46,7 @@ function Navbar() {
          
           <p onClick={()=>{
             navigate('/')
-          }} className=" hidden sm:block">
+          }} className=" hidden sm:block hover:cursor-pointer">
           HOME
           </p>
         
