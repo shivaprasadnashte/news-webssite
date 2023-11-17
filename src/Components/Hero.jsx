@@ -14,7 +14,7 @@ function Hero({ image, title, desc, urlToReadMore, index, setIndex }) {
         , [index])  // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <>
-            <div className='bg-neutral my-10 lg:py-20 lg:h-[400px] p-2 flex flex-col lg:flex-row items-center justify-center'>
+            <div className='bg-neutral lg:py-20 mt-10 lg:h-[400px] p-2 flex flex-col lg:flex-row items-center justify-center'>
                 <button className='mr-2 hidden lg:block btn btn-primary'
                     onClick={() => {
                         if (index === 0) {
