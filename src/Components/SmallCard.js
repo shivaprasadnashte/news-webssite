@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import rarro from "../asets/rarrow.png";
-
 function SmallCard({ title, description, img, url }) {
-  // {data.articles?.map((item) => {
-
-  // })}
   return (
     <>
       <div className=" relative w-[300px] h-[590px] shadow-xl lg:w-[340px] lg:h-max-[590px]">
@@ -36,5 +32,4 @@ function SmallCard({ title, description, img, url }) {
     </>
   );
 }
-
 export default SmallCard;

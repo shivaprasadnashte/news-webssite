@@ -1,12 +1,4 @@
 import React from "react";
-import facebook from "../asets/facebook.svg";
-import insta from "../asets/insta.svg";
-import twitter from "../asets/twitter.svg";
-import linkedin from "../asets/linkdin.svg";
-import github from "../asets/github.svg";
-import LOGO from "../asets/logo.png";
-import { FaPhoneAlt } from "react-icons/fa";
-import { MdOutlineMailLock } from "react-icons/md";
 
 function Footer() {
   return (
