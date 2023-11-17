@@ -1,5 +1,5 @@
 import SCARD from "../Components/SmallCard";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect} from "react";
 import left from "../asets/chevronleft.svg";
 import right from "../asets/chevronright.svg";
 
@@ -23,6 +23,7 @@ function Body() {
   };
   useEffect(() => {
     fetchApiData("bitcoin");
+    //eslint-disable-next-line
   }, [page]);
 
   
@@ -38,6 +39,7 @@ function Body() {
           {data.articles?.map((item, index) => {
             return (
               <SCARD
+              key={index}
                 title={item.title}
                 description={item.description}
                 img={item.urlToImage || "https://picsum.photos/200/300"}
