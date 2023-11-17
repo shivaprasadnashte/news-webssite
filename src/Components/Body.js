@@ -4,30 +4,35 @@ import left from "../asets/chevronleft.svg";
 import right from "../asets/chevronright.svg";
 
 function Body() {
-  //===================== API Fetching ======================================
   const AIPKEY = "ce4e4db9fc22415694e75fc5f2a940b0";
   const API = "https://newsapi.org/v2/everything?q=";
   const [page, setPage] = useState(12);
   const [data, setData] = useState([]);
+  const [loding, setLoding] = useState(true);
   const fetchApiData = async (query) => {
     try {
       const response = await fetch(
         `${API}${query}&apiKey=${AIPKEY}&language=en&pageSize=${page}`
       );
-
       setData(await response.json());
+      setLoding(false);
     } catch (error) {
       console.log(error);
+      setLoding(true);
     }
   };
   useEffect(() => {
     fetchApiData("bitcoin");
   }, [page]);
 
-  //=========================================================
+  
   return (
     <>
-      <main className=" flex flex-col items-center gap-6 pb-6">
+      { loding ? <div className=" flex justify-center items-center h-screen">
+        <div className=" animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+      </div> :
+        
+        <main className=" flex flex-col items-center gap-6 pb-6">
         <p className=" text-2xl font-bold">LETEST NEWS</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-evenly">
           {data.articles?.map((item, index) => {
@@ -67,7 +72,7 @@ function Body() {
             <img src={right} alt="#" />
           </div>
         </div>
-      </main>
+      </main>}
     </>
   );
 }
