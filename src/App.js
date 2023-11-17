@@ -1,19 +1,16 @@
-import NAVBAR from "./Components/Navbar";
-import FOOTER from "./Components/Footer";
-import BODY from "./Components/Body";
-import Aboutus from "./Components/Aboutus";
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import SearchPage from "./pages/SearchPage";
+import Home from "./pages/Home";
+import About from "./pages/About";
 function App() {
   return (
-    <>
-      <div className=" flex flex-col  justify-between  ">
-        <NAVBAR />
-        <main className=" flex justify-center mt-9">
-          <BODY />
-        </main>
-        <FOOTER />
-      </div>
-      {/* <Aboutus /> */}
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/search/:searchTerm" element={<SearchPage />} />
+        </Routes>
+    </Router>
   );
 }
 
