@@ -9,7 +9,7 @@ import LOGO from "../asets/logo.png";
 function Footer() {
   return (
     <>
-      <div className=" flex flex-col bg-[#AAC8A7] w-full mb-0 justify-evenly p-4">
+      <div className=" flex flex-col shadow-2xl w-full mb-0 justify-evenly p-4">
         <div className=" items-center sm:flex sm:flex-col md:flex md:flex-row w-full justify-between">
           <div>
             <img src={LOGO} alt="logo" className=" w-40 h-auto" />

@@ -29,7 +29,7 @@ function Body() {
     <>
       <main className=" flex flex-col items-center gap-6 pb-6">
         <p className=" text-2xl font-bold">LETEST NEWS</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 justify-evenly">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-evenly">
           {data.articles?.map((item, index) => {
             return (
               <SCARD
@@ -42,7 +42,7 @@ function Body() {
           })}
         </div>
         <div className=" flex">
-          <div className=" bg-yellow-400 w-24 items-center rounded-md flex gap-1">
+          <div className="  shadow-xl w-24 items-center rounded-md flex gap-1">
             <img src={left} alt="#" className=" h-4 text-center" />
             <button
               onClick={() => {
@@ -56,7 +56,7 @@ function Body() {
             <p>{page / 12}</p>
           </div>
 
-          <div className=" bg-yellow-400 w-20 text-center px-2 rounded-md flex">
+          <div className=" shadow-xl w-20 text-center px-2 rounded-md flex">
             <button
               onClick={() => {
                 setPage(page + 12);

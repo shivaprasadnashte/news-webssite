@@ -17,7 +17,7 @@ function Navbar() {
 
   return (
     <>
-      <div className=" flex  bg-[#AAC8A7] items-center justify-between p-2">
+      <div className=" flex   shadow-2xl items-center justify-between p-2">
         <div className=" flex items-center">
           <img src={LOGO} alt="logo" className=" h-12 md:mx-4 " />
         </div>
@@ -30,7 +30,7 @@ function Navbar() {
           <a href="/src/App.js" className="hidden md:block">
             ABOUT
           </a>
-          <select name="Select" className="bg-[#AAC8A7] text-center">
+          <select name="Select" className=" text-center">
             <option value="crime">CATEGORY</option>
             <option value="crime">CATEGORY</option>
             <option value="crime">CATEGORY</option>
@@ -53,15 +53,15 @@ function Navbar() {
           />
 
           <div className=" md:flex hidden">
-            <input
-              type="text"
-              className=" rounded-sm placeholder:px-2"
-              placeholder="search a news"
-            />
+            <div className=" border-2 border-gray-200">
+              <input
+                type="text"
+                className=" rounded-sm focus:outline-none px-1 "
+                placeholder="search a news"
+              />
+            </div>
             <div>
-              <button className="bg-[#80917e] mx-3 p-1 rounded-sm ">
-                SEARCH
-              </button>
+              <button className=" mx-3 p-1 rounded-sm ">SEARCH</button>
             </div>
           </div>
         </div>
@@ -69,13 +69,15 @@ function Navbar() {
       <div className={state ? "block" : " hidden "}>
         <div className="md:hidden flex w-full justify-evenly mt-4 ">
           <div className=" flex">
-            <input
-              type="text"
-              className=" rounded-sm w-full placeholder:px-2 border-2 border-black "
-              placeholder="search a news"
-            />
+            <div className=" border-2 b border-gray-500">
+              <input
+                type="text"
+                className=" rounded-sm w-full placeholder:px-2  "
+                placeholder="search a news"
+              />
+            </div>
             <div>
-              <button className="bg-[#80917e] mx-2 border-2 border-black py-2 px-2 rounded-sm ">
+              <button className=" mx-2 border-2 border-black py-2 px-2 rounded-sm ">
                 SEARCH
               </button>
             </div>
