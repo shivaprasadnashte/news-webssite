@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-
 import { Link } from 'react-router-dom'
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -8,10 +7,8 @@ function Hero({ image, title, desc, urlToReadMore, index, setIndex }) {
         const interval = setInterval(() => {
             setIndex(index + 1)
         }, 5000);
-        return () => clearInterval(interval);
         // eslint-disable-next-line
-    }
-        , [index])  // eslint-disable-line react-hooks/exhaustive-deps
+    }, [index])  // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <>
             <div className='bg-neutral lg:py-20 mt-10 lg:h-[400px] p-2 flex flex-col lg:flex-row items-center justify-center'>
