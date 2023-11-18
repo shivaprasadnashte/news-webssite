@@ -1,7 +1,6 @@
 import NAVBAR from "../Components/Navbar";
 import BODY from "../Components/Body";
 import FOOTER from "../Components/Footer";
-import Hero from "../Components/Hero";
 import HeadeNews from "../Components/HeadeNews";
 function Home() {
   return (
