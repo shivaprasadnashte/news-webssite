@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LOGO from "../asets/logo.png";
 import SEARCH from "../asets/search.svg";
@@ -8,7 +8,7 @@ import { FaAngleDown } from "react-icons/fa6";
 function Navbar() {
   
   const [state, setState] = useState(false);
-  const [state2, setState2] = useState(false);
+  // const [state2, setState2] = useState(false);
   const [search, setSearch] = useState("");
   const [show, setShow] = useState(false);
 
@@ -20,9 +20,9 @@ function Navbar() {
   const change = () => {
     setState(!state);
   };
-  const change2 = () => {
-    setState2(!state2);
-  };
+  // const change2 = () => {
+  //   setState2(!state2);
+  // };
 
   const submit = (e) => {
     e.preventDefault();

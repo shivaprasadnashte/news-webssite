@@ -11,7 +11,6 @@ function HeadeNews() {
 
 
     const fetchApiData = async () => {
-
         try {
             const response = await fetch(
                 `${API}&apiKey=${AIPKEY}&language=en&pageSize=${10}`
@@ -25,12 +24,10 @@ function HeadeNews() {
             setLoading(true);
         }
     };
-
-
     useEffect(() => {
         fetchApiData();
         // eslint-disable-next-line
-    }, [])
+    })
 
     return (
         <>
