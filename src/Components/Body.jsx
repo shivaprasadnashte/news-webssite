@@ -1,11 +1,11 @@
-import SCARD from "../Components/SmallCard";
+import SCARD from "./SmallCard";
 import { useState, useEffect } from "react";
 import left from "../asets/chevronleft.svg";
 import right from "../asets/chevronright.svg";
 
 function Body() {
   const AIPKEY = "ce4e4db9fc22415694e75fc5f2a940b0";
-  const API = "https://newsapi.org/v2/top-headlines?country=in";
+  const API = "https://newsapi.org/v2/everything?q=all";
   const [page, setPage] = useState(12);
   const [data, setData] = useState([]);
   const [loding, setLoding] = useState(true);
@@ -42,7 +42,7 @@ function Body() {
                   key={index}
                   title={item.title}
                   description={item.description}
-                  img={item.urlToImage || "https://picsum.photos/200/300"}
+                  img={item.urlToImage || "https://utfs.io/f/77a29cc1-07b2-46e0-b137-cbdc43aeb3ec-h89hs9.jpeg"}
                   url={item.url}
                 />
               );

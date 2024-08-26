@@ -3,7 +3,7 @@ import Hero from "./Hero";
 
 function HeadeNews() {
     const AIPKEY = "ce4e4db9fc22415694e75fc5f2a940b0";
-    const API = "https://newsapi.org/v2/top-headlines?country=in";
+    const API = "https://newsapi.org/v2/everything?q=all";
 
     const [news, setNews] = useState([])
     const [loading, setLoading] = useState(false)
@@ -27,13 +27,13 @@ function HeadeNews() {
     useEffect(() => {
         fetchApiData();
         // eslint-disable-next-line
-    })
+    },[])
 
     return (
         <>
             {
                 loading ? <h1>Loading...</h1> : <div>
-                    {news[0] ? <Hero index={index} setIndex={setIndex} title={news[index % news.length].title} desc={news[index % news.length].description} image={news[index % news.length].urlToImage} urlToReadMore={news[index % news.length].url} /> : null}
+                    {news[0] ? <Hero index={index} setIndex={setIndex} title={news[index % news.length].title} desc={news[index % news.length].description} image={news[index % news.length].urlToImage || "https://utfs.io/f/77a29cc1-07b2-46e0-b137-cbdc43aeb3ec-h89hs9.jpeg"} urlToReadMore={news[index % news.length].url} /> : null}
                 </div>
             }
         </>

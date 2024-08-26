@@ -22,7 +22,7 @@ function Hero({ image, title, desc, urlToReadMore, index, setIndex }) {
                         }
                         setIndex(index - 1)
                     }}><FaChevronLeft className='text-2xl' /></button>
-                <img src={image} className='w-[400px] h-[250px]' alt="headerImage" />
+                <img src={image} className='min-w-[400px] h-full object-cover' alt="headerImage" />
                 <div className=' lg:px-5 text-white py-5 flex flex-col items-center gap-5'>
                     <h1 className='text-lg  lg:text-3xl font-bold'>{title}</h1>
                     <p className='text-sm  lg:text-lg'>{desc}</p>
